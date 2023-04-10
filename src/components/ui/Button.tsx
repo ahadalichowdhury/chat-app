@@ -9,11 +9,12 @@ const ButtonVariants = cva(
     variants: {
       variant: {
         default: "bg-slate-900 text-white hover:bg-slate-800",
-        ghost: "bg-transparent text-slate-900 hover:bg-slate-100",
+        ghost: "bg-transparent text-slate-900 hover:bg-slate-200",
       },
       size: {
-        default: "h-2 px-4 py-2",
-        sm: "h-2 px-2",
+        default: "h-10 px-4 py-2",
+        sm: "h-9 px-2",
+        lg: "h-11 px-8",
       },
     },
     defaultVariants: {
@@ -38,7 +39,11 @@ const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <button className={cn(ButtonVariants({variant, size, className}))} disabled={isLoading} {...props}>
+    <button
+      className={cn(ButtonVariants({ variant, size, className }))}
+      disabled={isLoading}
+      {...props}
+    >
       {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
       {children}
     </button>
